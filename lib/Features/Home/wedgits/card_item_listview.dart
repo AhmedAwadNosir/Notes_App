@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../Models/note_model.dart';
+import '../views/edit_note_view.dart';
 import 'card_item.dart';
+
 class CardItmesListView extends StatelessWidget {
   CardItmesListView({super.key});
   List<NoteModel> cards = [
@@ -34,7 +36,11 @@ class CardItmesListView extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.only(bottom: 10),
-          child: CardItem(note: cards[index]),
+          child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, EditView.id);
+              },
+              child: CardItem(note: cards[index])),
         );
       },
     );

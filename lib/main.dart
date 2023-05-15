@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app_git/Features/Home/views/edit_note_view.dart';
 import 'package:notes_app_git/Features/home/views/home_view.dart';
 
 import 'Utils/app_colors.dart';
@@ -15,7 +16,10 @@ class NotesApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
           useMaterial3: true, scaffoldBackgroundColor: AppColors.primaryColor),
-      routes: {HomeView.id: (context) => const HomeView()},
+      routes: {
+        HomeView.id: (context) => const HomeView(),
+        EditView.id: (context) => const EditView(),
+      },
       initialRoute: HomeView.id,
     );
   }
