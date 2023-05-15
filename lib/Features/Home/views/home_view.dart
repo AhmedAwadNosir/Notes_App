@@ -14,6 +14,7 @@ class HomeView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
+            isScrollControlled: true,
             context: context,
             backgroundColor: AppColors.primaryColor,
             builder: (context) {
