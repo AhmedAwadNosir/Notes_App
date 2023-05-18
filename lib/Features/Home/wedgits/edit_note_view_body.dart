@@ -9,31 +9,31 @@ class EditNoteViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25),
+        padding: EdgeInsets.symmetric(horizontal: 25),
         child: Column(
           children: [
-            const SizedBox(
+            SizedBox(
               height: 30,
             ),
-            const AppHeader(title: "Edit Note", icon: Icons.check),
-            const SizedBox(
+            AppHeader(title: "Edit Note", icon: Icons.check),
+            SizedBox(
               height: 40,
             ),
-            const CustomTextField(
+            CustomTextField(
               hint: "Learn flutter",
             ),
-            const CustomTextField(
+            CustomTextField(
               hint: "Learn Flutter With Tharwat samy",
               maxlines: 5,
             ),
-            const SizedBox(
+            SizedBox(
               height: 20,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
+              children: [
                 SizedBox(
                   height: 15,
                 ),

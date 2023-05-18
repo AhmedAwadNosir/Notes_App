@@ -48,11 +48,11 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
               const SizedBox(
                 height: 10,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [
+                  children: [
                     ColorPiker(color: Colors.white),
                     ColorPiker(color: Colors.red),
                     ColorPiker(color: Colors.lightBlue),
