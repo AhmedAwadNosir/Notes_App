@@ -10,23 +10,23 @@ class CardItmesListView extends StatelessWidget {
         title: "Learn Flutter",
         description: "learn flutter with tharwat samy  ",
         date: "05-31-2022",
-        color: Colors.blueGrey),
+        color: Colors.blueGrey.value),
     NoteModel(
       title: "Learn Flutter",
       description: "learn flutter with tharwat samy",
       date: "05-31-2022",
-      color: Colors.yellow,
+      color: Colors.yellow.value,
     ),
     NoteModel(
         title: "Learn Flutter",
         description: "learn flutter with tharwat samy",
         date: "05-31-2022",
-        color: Colors.red),
+        color: Colors.red.value),
     NoteModel(
         title: "Learn Flutter",
         description: "learn flutter with tharwat samy",
         date: "05-31-2022",
-        color: Colors.blue),
+        color: Colors.blue.value),
   ];
 
   @override
