@@ -1,6 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:notes_app_git/Models/note_model.dart';
 import 'color_picker.dart';
 import 'custom_text_form_field.dart';
 
@@ -71,6 +73,15 @@ class _AddNoteBottomSheetState extends State<AddNoteBottomSheet> {
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         formKey.currentState!.save();
+                        try {
+                          var box = Hive.box<NoteModel>("notes");
+                          var id = box.add(NoteModel(
+                              title: title!,
+                              description: subTitle!,
+                              date: TimeOfDay.now().toString(),
+                              color: Colors.yellow.value));
+                          log(id.toString());
+                        } catch (e) {}
                       } else {
                         autovalidateMode = AutovalidateMode.always;
                         setState(() {});
