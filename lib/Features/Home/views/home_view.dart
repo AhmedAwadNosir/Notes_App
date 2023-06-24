@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_app_git/Cubits/add_note_cubit/cubit/add_note_cubit.dart';
 import 'package:notes_app_git/Utils/app_colors.dart';
 
-import '../wedgits/adding_note_bottom_sheet_form.dart';
+import '../../../Cubits/add_note_cubit/add_note_cubit.dart';
+import '../wedgits/adding_note_bottom_sheet.dart';
 import '../wedgits/home_view_body.dart';
 
 class HomeView extends StatelessWidget {
