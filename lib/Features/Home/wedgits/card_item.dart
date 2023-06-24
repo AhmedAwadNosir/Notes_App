@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app_git/Cubits/delete_note_cubit/delete_note_cubit.dart';
 import 'package:notes_app_git/Models/note_model.dart';
 
 class CardItem extends StatelessWidget {
- const CardItem({super.key, required this.note});
- final NoteModel note;
+  const CardItem({super.key, required this.note});
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,7 +41,10 @@ class CardItem extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      BlocProvider.of<DeleteNoteCubit>(context)
+                          .deleteNote(note);
+                    },
                     icon: const Icon(
                       Icons.delete,
                       color: Colors.black,

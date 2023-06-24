@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app_git/Cubits/delete_note_cubit/delete_note_cubit.dart';
+import 'package:notes_app_git/Features/Home/wedgits/hom_view_body_bloc_lisner.dart';
 import 'package:notes_app_git/Utils/app_colors.dart';
 
 import '../../../Cubits/add_note_cubit/add_note_cubit.dart';
@@ -12,7 +14,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const HomeViewBody(),
+      body:  BlocProvider(create: (context) => DeleteNoteCubit(),child: HomeViewBodyBlocLisner(),),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
