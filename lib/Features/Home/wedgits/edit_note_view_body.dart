@@ -3,14 +3,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app_git/Cubits/featch_notes_cubit/featch_notes_cubit.dart';
 import 'package:notes_app_git/Features/Home/wedgits/color_picker.dart';
 import 'package:notes_app_git/Features/Home/wedgits/color_picker_list_view.dart';
+import 'package:notes_app_git/Features/Home/wedgits/edit_note_color_list.dart';
 import 'package:notes_app_git/Models/note_model.dart';
 
 import '../../wedgits/app_header.dart';
 import 'custom_text_field.dart';
 
-class EditNoteViewBody extends StatelessWidget {
+class EditNoteViewBody extends StatefulWidget {
   const EditNoteViewBody({super.key, required this.note});
   final NoteModel note;
+
+  @override
+  State<EditNoteViewBody> createState() => _EditNoteViewBodyState();
+}
+
+class _EditNoteViewBodyState extends State<EditNoteViewBody> {
+  String? title, content;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -25,7 +34,9 @@ class EditNoteViewBody extends StatelessWidget {
               title: "Edit Note",
               icon: Icons.check,
               onPressed: () {
-                note.save();
+                widget.note.title = title ?? widget.note.title;
+                widget.note.description = content ?? widget.note.description;
+                widget.note.save();
                 BlocProvider.of<FeatchNotesCubit>(context).featchNotes();
                 Navigator.pop(context);
               },
@@ -35,17 +46,17 @@ class EditNoteViewBody extends StatelessWidget {
             ),
             CustomTextField(
               hint: "Learn flutter",
-              text: note.title,
+              text: widget.note.title,
               onChanged: (value) {
-                note.title = value;
+                title = value;
               },
             ),
             CustomTextField(
               hint: "Learn Flutter With Tharwat samy",
               maxlines: 5,
-              text: note.description,
+              text: widget.note.description,
               onChanged: (value) {
-                note.description = value;
+                content = value;
               },
             ),
             const SizedBox(
@@ -53,7 +64,7 @@ class EditNoteViewBody extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: ColorPickerListView(),
+              child: EditNoteColorListView(note: widget.note),
             ),
           ],
         ),
