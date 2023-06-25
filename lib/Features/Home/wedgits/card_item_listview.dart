@@ -17,7 +17,14 @@ class CardItmesListView extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 10),
             child: GestureDetector(
                 onTap: () {
-                  Navigator.pushNamed(context, EditView.id);
+                  final currentNote = notes[index];
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                     return EditView(
+                        note: currentNote,
+                      );
+                    },
+                  ));
                 },
                 child: CardItem(note: notes[index])),
           );

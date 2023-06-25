@@ -4,11 +4,11 @@ class AppHeader extends StatelessWidget {
   const AppHeader({
     super.key,
     required this.title,
-    required this.icon,
+    required this.icon, this.onPressed,
   });
   final String title;
   final IconData icon;
-
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,7 +19,7 @@ class AppHeader extends StatelessWidget {
           style: const TextStyle(fontSize: 32, color: Colors.white),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: onPressed,
           icon: Container(
             height: 50,
             width: 50,

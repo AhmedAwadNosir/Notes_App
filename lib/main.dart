@@ -30,7 +30,6 @@ class NotesApp extends StatelessWidget {
             scaffoldBackgroundColor: AppColors.primaryColor),
         routes: {
           HomeView.id: (context) => const HomeView(),
-          EditView.id: (context) => const EditView(),
         },
         initialRoute: HomeView.id,
       ),

@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 
 class ColorPiker extends StatelessWidget {
-  const ColorPiker({
+  ColorPiker({
     super.key,
-    required this.color,
+    required this.bacgroundColor,
+    required this.isSelected,
   });
-  final Color color;
+
+  final Color bacgroundColor;
+  bool isSelected;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 70,
-      width: 70,
-      decoration:
-          BoxDecoration(color: color, borderRadius: BorderRadius.circular(50)),
+    return Padding(
+      padding: const EdgeInsets.only(right: 15),
+      child: CircleAvatar(
+        radius: 35,
+        backgroundColor: isSelected ? Colors.white : bacgroundColor,
+        child: CircleAvatar(
+          radius: 31,
+          backgroundColor: bacgroundColor,
+        ),
+      ),
     );
   }
 }

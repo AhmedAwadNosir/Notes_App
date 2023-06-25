@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app_git/Features/Home/wedgits/color_picker_list_view.dart';
 import 'package:notes_app_git/Models/note_model.dart';
 import '../../../Cubits/add_note_cubit/add_note_cubit.dart';
-import 'color_picker.dart';
 import 'custom_text_form_field.dart';
 
 class AddNoteBottomSheetForm extends StatefulWidget {
@@ -18,6 +18,7 @@ class AddNoteBottomSheetForm extends StatefulWidget {
 
 String? title;
 String? subTitle;
+Color? color;
 GlobalKey<FormState> formKey = GlobalKey();
 
 class _AddNoteBottomSheetFormState extends State<AddNoteBottomSheetForm> {
@@ -47,17 +48,10 @@ class _AddNoteBottomSheetFormState extends State<AddNoteBottomSheetForm> {
           const SizedBox(
             height: 10,
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ColorPiker(color: Colors.white),
-                ColorPiker(color: Colors.red),
-                ColorPiker(color: Colors.lightBlue),
-                ColorPiker(color: Colors.green),
-              ],
-            ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.of(context).size.width * 0.08),
+            child: ColorPickerListView(),
           ),
           const SizedBox(
             height: 20,
